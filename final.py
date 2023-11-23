@@ -1,1 +1,1 @@
-hiii
+print("hi")
