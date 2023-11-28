@@ -23,16 +23,21 @@
       events: [
         {
           title: 'Event 1',
-          start: '2023-11-28',
-          end: '2023-11-29'
+          start: '2023-11-28T10:00:00', // Start time
+          end: '2023-11-29T14:30:00',   // End time
+          description: 'This is Event 1. It has a brief description.'
         },
         {
           title: 'Event 2',
-          start: '2023-12-05',
-          end: '2023-12-07'
+          start: '2023-12-05T15:00:00',
+          end: '2023-12-07T18:00:00',
+          description: 'Event 2 description goes here.'
         }
         // Add more events as needed
-      ]
+      ],
+      eventClick: function(calEvent, jsEvent, view) {
+        alert('Event: ' + calEvent.title + '\nStart Time: ' + calEvent.start.format() + '\nDescription: ' + calEvent.description);
+      }
     });
   });
 </script>
