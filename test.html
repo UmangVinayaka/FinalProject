@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+  <style>
+    /* Set the height of the calendar container */
+    #calendar {
+      height: 400px;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,11 +26,13 @@
 <script>
   $(document).ready(function() {
     $('#calendar').fullCalendar({
+      slotDuration: '00:15:00',
+      defaultTimedEventDuration: '00:30:00',
+      timeFormat: 'h:mm a', // Use 12-hour clock format with am/pm
       events: [
         {
           title: 'Event 1',
-          start: '2023-11-28T10:00:00', // Start time
-          end: '2023-11-29T14:30:00',   // End time
+          start: '2023-11-28T10:00:00',
           description: 'This is Event 1. It has a brief description.'
         },
         {
@@ -36,11 +44,15 @@
         // Add more events as needed
       ],
       eventClick: function(calEvent, jsEvent, view) {
-        alert('Event: ' + calEvent.title + '\nStart Time: ' + calEvent.start.format() + '\nDescription: ' + calEvent.description);
+        alert('Event: ' + calEvent.title + '\nStart Time: ' + calEvent.start.format('h:mm a') + '\nDescription: ' + calEvent.description);
+      },
+      eventRender: function(event, element) {
+        // Customize the event rendering
+        element.find('.fc-title').append('<br/><span class="fc-time">' + event.start.format('h:mm a') + '</span>');
       }
     });
   });
 </script>
 
 </body>
-</html>
+</
