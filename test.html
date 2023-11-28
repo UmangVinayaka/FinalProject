@@ -3,21 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datepicker Example</title>
+  <title>Event Calendar</title>
   <!-- Include jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <!-- Include jQuery UI -->
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- Include FullCalendar CSS and JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 </head>
 <body>
 
-<!-- HTML element with the ID "datepicker" -->
-<input type="text" id="datepicker" placeholder="Select a date">
+<!-- Calendar container -->
+<div id="calendar"></div>
 
-<!-- JavaScript code for datepicker -->
-<script type="text/javascript">
-  $( "#datepicker" ).datepicker();
+<!-- JavaScript code to initialize FullCalendar -->
+<script>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+      events: [
+        {
+          title: 'Event 1',
+          start: '2023-11-28',
+          end: '2023-11-29'
+        },
+        {
+          title: 'Event 2',
+          start: '2023-12-05',
+          end: '2023-12-07'
+        }
+        // Add more events as needed
+      ]
+    });
+  });
 </script>
 
 </body>
